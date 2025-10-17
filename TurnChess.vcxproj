@@ -127,7 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="TurnChess.cpp" />
+    <ClCompile Include="TurnChess\Main.cpp" />
+    <ClCompile Include="TurnChess\Run.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TurnChess\Entity\Character.h" />
+    <ClInclude Include="TurnChess\Entity\Character\Monster.h" />
+    <ClInclude Include="TurnChess\Entity\Character\Player.h" />
+    <ClInclude Include="TurnChess\Entity\Character\Skill.h" />
+    <ClInclude Include="TurnChess\Entity\Character\Status.h" />
+    <ClInclude Include="TurnChess\Entity\Entity.h" />
+    <ClInclude Include="TurnChess\Entity\Item.h" />
+    <ClInclude Include="TurnChess\Entity\Item\Barrier.h" />
+    <ClInclude Include="TurnChess\Entity\Item\Castle.h" />
+    <ClInclude Include="TurnChess\Entity\Item\Grid.h" />
+    <ClInclude Include="TurnChess\Entity\Item\Map.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,8 +15,46 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TurnChess.cpp">
+    <ClCompile Include="TurnChess\Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TurnChess\Run.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TurnChess\Entity\Character.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Entity.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item\Barrier.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item\Castle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item\Grid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item\Map.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Character\Monster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Character\Player.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Character\Skill.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Character\Status.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
