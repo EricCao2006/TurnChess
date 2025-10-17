@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="TurnChess\Main.cpp" />
-    <ClCompile Include="TurnChess\Run.cpp" />
+    <ClCompile Include="TurnChess\Runtime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TurnChess\Entity\Character.h" />
