@@ -1,7 +1,28 @@
-ï»¿#pragma once
-#include "../item.h"
-//åœ°å›¾
-class map : public item
+#pragma once
+#include "grid.h"
+#include <ctime>
+//µØÍ¼£¬16*9¸ñ
+class map
 {
-	
+public:
+	grid grids[16][9];
+	//³õÊ¼»¯ÆåÅÌ£¬È»ºóËæ»úÉú³ÉµØĞÎ
+	map(void){
+		for (int i = 0; i < 16; i++)
+		{
+			for (int j = 0; j < 9; j++)
+			{
+				grids[i][j].pos.x = i;
+				grids[i][j].pos.y = j;
+			}
+		}
+		rand_map();
+	}
+private:
+	//Ëæ»úÉú³ÉµØĞÎ
+	void rand_map()
+	{
+		//Éú³ÉÖÖ×Ó
+		srand((unsigned int)time(NULL));
+	}
 };

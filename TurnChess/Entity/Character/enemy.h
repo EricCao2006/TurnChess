@@ -3,6 +3,7 @@
 //敌人
 class enemy : public character
 {
-	
+	int level = 1; //等级
+
 };
 

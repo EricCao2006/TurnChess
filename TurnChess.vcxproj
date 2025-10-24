@@ -23,13 +23,18 @@
     <ClInclude Include="TurnChess\Entity\Character\enemy.h" />
     <ClInclude Include="TurnChess\Entity\Character\player.h" />
     <ClInclude Include="TurnChess\Entity\Character\skill.h" />
+    <ClInclude Include="TurnChess\Entity\Character\status.h" />
     <ClInclude Include="TurnChess\Entity\entity.h" />
     <ClInclude Include="TurnChess\Entity\item.h" />
     <ClInclude Include="TurnChess\Entity\Item\barrier.h" />
     <ClInclude Include="TurnChess\Entity\Item\castle.h" />
     <ClInclude Include="TurnChess\Entity\Item\grid.h" />
     <ClInclude Include="TurnChess\Entity\Item\map.h" />
-    <ClInclude Include="TurnChess\logic.h" />
+    <ClInclude Include="TurnChess\Logic\act_list.h" />
+    <ClInclude Include="TurnChess\Logic\entitylist.h" />
+    <ClInclude Include="TurnChess\Logic\run.h" />
+    <ClInclude Include="TurnChess\Resource\enemys.h" />
+    <ClInclude Include="TurnChess\Resource\players.h" />
     <ClInclude Include="TurnChess\runtime.h" />
   </ItemGroup>
   <ItemGroup>

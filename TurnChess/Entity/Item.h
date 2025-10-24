@@ -4,5 +4,5 @@
 class item : public entity
 {
 public:
-	int position [2] = {0,0};
+	; //此处留空
 };

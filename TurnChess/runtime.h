@@ -11,7 +11,6 @@
 #include "Entity/Item/barrier.h"
 #include "Entity/Item/castle.h"
 #include "Entity/Item/grid.h"
-#include "Entity/Item/map.h"
 
 #include <iostream>
 using std::cin;

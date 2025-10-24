@@ -1,69 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{3dee74be-a24a-4501-b4b6-198050fe1101}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Entity\Character">
+      <UniqueIdentifier>{dc4c32a5-41a7-49fe-8572-aa2e7aadb91f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="资源文件">
+    <Filter Include="Entity\Item">
+      <UniqueIdentifier>{abe190f1-2ca1-4c4c-aafc-0b003602b506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\Entity">
-      <UniqueIdentifier>{3dee74be-a24a-4501-b4b6-198050fe1101}</UniqueIdentifier>
+    <Filter Include="Main">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="头文件\Entity\Character">
-      <UniqueIdentifier>{dc4c32a5-41a7-49fe-8572-aa2e7aadb91f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\Entity\Item">
-      <UniqueIdentifier>{abe190f1-2ca1-4c4c-aafc-0b003602b506}</UniqueIdentifier>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TurnChess\logic.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\runtime.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="TurnChess\Entity\Item\castle.h">
-      <Filter>头文件\Entity\Item</Filter>
+      <Filter>Entity\Item</Filter>
     </ClInclude>
     <ClInclude Include="TurnChess\Entity\Item\barrier.h">
-      <Filter>头文件\Entity\Item</Filter>
+      <Filter>Entity\Item</Filter>
     </ClInclude>
     <ClInclude Include="TurnChess\Entity\character.h">
-      <Filter>头文件\Entity</Filter>
+      <Filter>Entity</Filter>
     </ClInclude>
     <ClInclude Include="TurnChess\Entity\Character\enemy.h">
-      <Filter>头文件\Entity\Character</Filter>
+      <Filter>Entity\Character</Filter>
     </ClInclude>
     <ClInclude Include="TurnChess\Entity\entity.h">
-      <Filter>头文件\Entity</Filter>
+      <Filter>Entity</Filter>
     </ClInclude>
     <ClInclude Include="TurnChess\Entity\Item\grid.h">
-      <Filter>头文件\Entity\Item</Filter>
+      <Filter>Entity\Item</Filter>
     </ClInclude>
     <ClInclude Include="TurnChess\Entity\item.h">
-      <Filter>头文件\Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Item\map.h">
-      <Filter>头文件\Entity\Item</Filter>
+      <Filter>Entity</Filter>
     </ClInclude>
     <ClInclude Include="TurnChess\Entity\Character\player.h">
-      <Filter>头文件\Entity\Character</Filter>
+      <Filter>Entity\Character</Filter>
     </ClInclude>
     <ClInclude Include="TurnChess\Entity\Character\skill.h">
-      <Filter>头文件\Entity\Character</Filter>
+      <Filter>Entity\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Character\status.h">
+      <Filter>Entity\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item\map.h">
+      <Filter>Entity\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Resource\enemys.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Resource\players.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\runtime.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Logic\act_list.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Logic\entitylist.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Logic\run.h">
+      <Filter>Logic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TurnChess\main.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
