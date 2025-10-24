@@ -18,6 +18,23 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TurnChess\Entity\character.h" />
+    <ClInclude Include="TurnChess\Entity\Character\enemy.h" />
+    <ClInclude Include="TurnChess\Entity\Character\player.h" />
+    <ClInclude Include="TurnChess\Entity\Character\skill.h" />
+    <ClInclude Include="TurnChess\Entity\entity.h" />
+    <ClInclude Include="TurnChess\Entity\item.h" />
+    <ClInclude Include="TurnChess\Entity\Item\barrier.h" />
+    <ClInclude Include="TurnChess\Entity\Item\castle.h" />
+    <ClInclude Include="TurnChess\Entity\Item\grid.h" />
+    <ClInclude Include="TurnChess\Entity\Item\map.h" />
+    <ClInclude Include="TurnChess\logic.h" />
+    <ClInclude Include="TurnChess\runtime.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TurnChess\main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,23 +143,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="TurnChess\Main.cpp" />
-    <ClCompile Include="TurnChess\Runtime.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="TurnChess\Entity\Character.h" />
-    <ClInclude Include="TurnChess\Entity\Character\Monster.h" />
-    <ClInclude Include="TurnChess\Entity\Character\Player.h" />
-    <ClInclude Include="TurnChess\Entity\Character\Skill.h" />
-    <ClInclude Include="TurnChess\Entity\Character\Status.h" />
-    <ClInclude Include="TurnChess\Entity\Entity.h" />
-    <ClInclude Include="TurnChess\Entity\Item.h" />
-    <ClInclude Include="TurnChess\Entity\Item\Barrier.h" />
-    <ClInclude Include="TurnChess\Entity\Item\Castle.h" />
-    <ClInclude Include="TurnChess\Entity\Item\Grid.h" />
-    <ClInclude Include="TurnChess\Entity\Item\Map.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

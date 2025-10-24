@@ -1,6 +1,6 @@
-#pragma once
+ï»¿#pragma once
 
-//Õ½¶·Âß¼­
+//æˆ˜æ–—é€»è¾‘
 class logic
 {
 	

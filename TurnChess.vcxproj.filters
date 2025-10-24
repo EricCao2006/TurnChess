@@ -13,48 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\Entity">
+      <UniqueIdentifier>{3dee74be-a24a-4501-b4b6-198050fe1101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Entity\Character">
+      <UniqueIdentifier>{dc4c32a5-41a7-49fe-8572-aa2e7aadb91f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Entity\Item">
+      <UniqueIdentifier>{abe190f1-2ca1-4c4c-aafc-0b003602b506}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TurnChess\Main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="TurnChess\Runtime.h">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClInclude Include="TurnChess\logic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\runtime.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item\castle.h">
+      <Filter>头文件\Entity\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item\barrier.h">
+      <Filter>头文件\Entity\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\character.h">
+      <Filter>头文件\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Character\enemy.h">
+      <Filter>头文件\Entity\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\entity.h">
+      <Filter>头文件\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item\grid.h">
+      <Filter>头文件\Entity\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\item.h">
+      <Filter>头文件\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Item\map.h">
+      <Filter>头文件\Entity\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Character\player.h">
+      <Filter>头文件\Entity\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Character\skill.h">
+      <Filter>头文件\Entity\Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TurnChess\Entity\Character.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Entity.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Item.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Item\Barrier.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Item\Castle.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Item\Grid.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Item\Map.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Character\Monster.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Character\Player.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Character\Skill.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Character\Status.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="TurnChess\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

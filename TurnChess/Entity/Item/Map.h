@@ -1,6 +1,6 @@
-#pragma once
+﻿#pragma once
 #include "../item.h"
-//��ͼ
+//地图
 class map : public item
 {
 	
