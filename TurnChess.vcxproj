@@ -29,10 +29,10 @@
     <ClInclude Include="TurnChess\Entity\Item\barrier.h" />
     <ClInclude Include="TurnChess\Entity\Item\castle.h" />
     <ClInclude Include="TurnChess\Entity\Item\grid.h" />
-    <ClInclude Include="TurnChess\Entity\Item\map.h" />
     <ClInclude Include="TurnChess\Logic\act_list.h" />
-    <ClInclude Include="TurnChess\Logic\entitylist.h" />
-    <ClInclude Include="TurnChess\Logic\run.h" />
+    <ClInclude Include="TurnChess\Logic\entity_list.h" />
+    <ClInclude Include="TurnChess\Logic\logic.h" />
+    <ClInclude Include="TurnChess\Logic\map.h" />
     <ClInclude Include="TurnChess\Resource\enemys.h" />
     <ClInclude Include="TurnChess\Resource\players.h" />
     <ClInclude Include="TurnChess\runtime.h" />

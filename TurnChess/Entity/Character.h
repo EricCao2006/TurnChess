@@ -6,7 +6,7 @@ class character : public entity
 {
 public:
 	// 基础属性
-	int max_health = 10; // 生命值上限
+	double max_health = 10.0; // 生命值上限
 	int norm_attack = 1; // 常态攻击力
 	int norm_defense = 1; // 常态防御力
 	// 当前属性

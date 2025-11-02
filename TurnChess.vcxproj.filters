@@ -54,9 +54,6 @@
     <ClInclude Include="TurnChess\Entity\Character\status.h">
       <Filter>Entity\Character</Filter>
     </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Item\map.h">
-      <Filter>Entity\Item</Filter>
-    </ClInclude>
     <ClInclude Include="TurnChess\Resource\enemys.h">
       <Filter>Resource</Filter>
     </ClInclude>
@@ -69,10 +66,13 @@
     <ClInclude Include="TurnChess\Logic\act_list.h">
       <Filter>Logic</Filter>
     </ClInclude>
-    <ClInclude Include="TurnChess\Logic\entitylist.h">
+    <ClInclude Include="TurnChess\Logic\entity_list.h">
       <Filter>Logic</Filter>
     </ClInclude>
-    <ClInclude Include="TurnChess\Logic\run.h">
+    <ClInclude Include="TurnChess\Logic\logic.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Logic\map.h">
       <Filter>Logic</Filter>
     </ClInclude>
   </ItemGroup>
