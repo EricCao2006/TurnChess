@@ -14,4 +14,6 @@ public:
 	int attack_now = 1; // 当前攻击力
 	int defense_now = 1; // 当前防御力
 	status statuses[5]; // 当前状态
+	//受到攻击
+	void attacked(const int attack_value);
 };

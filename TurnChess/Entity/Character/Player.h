@@ -6,9 +6,10 @@ class player : public character
 {
 public:
 	string under_show = "角色名 等级1 经验0/100 生/攻/防0/0/0 无状态";
-	string display = "Pl"; //显示字符
+	string display = "Pl"; //默认显示字符
+	int player_id = 0; //角色ID
 	//行动
-	void act(skill); //TODO
+	void act(); //TODO
 	//攻破堡垒
 	void break_castle();
 private:
@@ -18,3 +19,4 @@ private:
 	skill combat_skill; //战技
 	skill ultimate_skill; //大招
 };
+

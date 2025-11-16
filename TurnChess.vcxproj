@@ -30,14 +30,20 @@
     <ClInclude Include="TurnChess\Entity\Item\castle.h" />
     <ClInclude Include="TurnChess\Entity\Item\grid.h" />
     <ClInclude Include="TurnChess\Logic\act_list.h" />
-    <ClInclude Include="TurnChess\Logic\entity_list.h" />
-    <ClInclude Include="TurnChess\Logic\logic.h" />
-    <ClInclude Include="TurnChess\Logic\map.h" />
+    <ClInclude Include="TurnChess\Logic\utils.h" />
+    <ClInclude Include="TurnChess\Logic\chessboard.h" />
     <ClInclude Include="TurnChess\Resource\enemys.h" />
     <ClInclude Include="TurnChess\Resource\players.h" />
     <ClInclude Include="TurnChess\runtime.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TurnChess\Entity\character.cpp" />
+    <ClCompile Include="TurnChess\Entity\Character\enemy.cpp" />
+    <ClCompile Include="TurnChess\Entity\Character\player.cpp" />
+    <ClCompile Include="TurnChess\Entity\Item\castle.cpp" />
+    <ClCompile Include="TurnChess\Logic\act_list.cpp" />
+    <ClCompile Include="TurnChess\Logic\chessboard.cpp" />
+    <ClCompile Include="TurnChess\Logic\utils.cpp" />
     <ClCompile Include="TurnChess\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

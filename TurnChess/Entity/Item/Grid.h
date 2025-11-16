@@ -2,7 +2,7 @@
 #include "../item.h"
 /*
  * 方格
- * 流血格用于简化伤害判定，不是地形！！！
+ * 用于简化伤害判定
  */
 class grid : public item
 {

@@ -66,19 +66,37 @@
     <ClInclude Include="TurnChess\Logic\act_list.h">
       <Filter>Logic</Filter>
     </ClInclude>
-    <ClInclude Include="TurnChess\Logic\entity_list.h">
+    <ClInclude Include="TurnChess\Logic\utils.h">
       <Filter>Logic</Filter>
     </ClInclude>
-    <ClInclude Include="TurnChess\Logic\logic.h">
-      <Filter>Logic</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Logic\map.h">
+    <ClInclude Include="TurnChess\Logic\chessboard.h">
       <Filter>Logic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TurnChess\main.cpp">
       <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnChess\Entity\Character\enemy.cpp">
+      <Filter>Entity\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnChess\Entity\Character\player.cpp">
+      <Filter>Entity\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnChess\Entity\Item\castle.cpp">
+      <Filter>Entity\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnChess\Entity\character.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnChess\Logic\act_list.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnChess\Logic\chessboard.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnChess\Logic\utils.cpp">
+      <Filter>Logic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
