@@ -10,10 +10,6 @@
     <Filter Include="Entity\Item">
       <UniqueIdentifier>{abe190f1-2ca1-4c4c-aafc-0b003602b506}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Main">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -48,17 +44,8 @@
     <ClInclude Include="TurnChess\Entity\Character\player.h">
       <Filter>Entity\Character</Filter>
     </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Character\skill.h">
+    <ClInclude Include="TurnChess\Entity\Character\skill.h.old">
       <Filter>Entity\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Character\status.h">
-      <Filter>Entity\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Resource\enemys.h">
-      <Filter>Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="TurnChess\Resource\players.h">
-      <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="TurnChess\runtime.h">
       <Filter>Main</Filter>
@@ -71,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="TurnChess\Logic\chessboard.h">
       <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="TurnChess\Entity\Character\players.h">
+      <Filter>Entity\Character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="TurnChess\Logic\utils.cpp">
       <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="TurnChess\Entity\Character\players.cpp">
+      <Filter>Entity\Character</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

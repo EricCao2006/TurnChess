@@ -9,14 +9,21 @@ void player::act()
 
 	switch (choice) {
 	case 'E':
-		//TODO
+		E_skill();
 		break;
 	case 'Q':
-		//TODO
+		Q_skill();
 		break;
 	case 'A'://Ä¬ÈÏÎªÆÕ¹¥
 	default:
-		//TODO
+		A_skill();
 		break;
 	}
+}
+
+player::player()
+{
+	health_now = static_cast<int>(max_health);
+	attack_now = norm_attack;
+	defense_now = norm_defense;
 }

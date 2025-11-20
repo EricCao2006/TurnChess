@@ -6,11 +6,11 @@ class utils
 {
 public:
 
-	//键值对，键为实体指针
-	struct poi_val
+	//实体及其显示字符
+	struct ent_dis
 	{
-		entity* poi;
-		string value;
+		entity* ent = nullptr;
+		string dis = "  ";
 	};
 
 	static position* around_pos(const position& pos);

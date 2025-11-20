@@ -16,3 +16,15 @@ void character::attacked(const int attack_value)
 	damage = std::clamp(damage, 1, health_now);//定界
 	health_now -= damage;
 }
+
+/**
+ * @brief 属性随难度提升
+ *
+ * 生乘1.2倍，攻防提1点
+ */
+void character::level_up()
+{
+	max_health *= 1.2;
+	norm_attack += 1;
+	norm_defense += 1;
+}

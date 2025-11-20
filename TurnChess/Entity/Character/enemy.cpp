@@ -17,20 +17,8 @@ boss::boss()
 	defense_now = 10 * norm_defense;
 }
 
-/**
- * @brief 敌人属性随难度提升
- *
- * 生乘1.2倍，攻防提1点
- */
-void enemy::level_up()
-{
-	max_health *= 1.2;
-	norm_attack += 1;
-	norm_defense += 1;
-}
-
 // 小怪攻击
-void monster::attack()
+void monster::act()
 {
 	int x= pos.x; int y = pos.y;
 	position* around = utils::around_pos(pos);
@@ -41,7 +29,7 @@ void monster::attack()
 		//确保坐标合法
 		if (x >= 0 && y >= 0 && x <= 15 && y <= 8)
 		{
-			auto* target = chessboard::entities[x][y].poi;
+			auto* target = chessboard::entities[x][y].ent;
 			if (target != nullptr )
 			{
 				if (target->type == PLAYER)
@@ -53,22 +41,55 @@ void monster::attack()
 		}
 		around++;
 	}
-	//如果没有，那么计算直角距离最近的角色，并靠近一格(上场角色共三个)
-	int dis = 25; //对角线不超过25
-	int tmp_dis = 0;
-	character* cha = nullptr;
-	character* tmp_cha = chessboard::characters[0];
-	for (size_t i = 0; i < 3; i++)
-	{
-		tmp_dis = tmp_cha->pos.x + tmp_cha->pos.y - x - y; 
-		if (dis < 0) tmp_dis = -tmp_dis;
-		if (tmp_dis < dis)
-		{
-			dis = tmp_dis;
-			cha = tmp_cha;
-		}
-		tmp_cha++;
-	}
-	
-	
+	//TODO:寻路算法
+	////如果没有，那么计算直角距离最近的角色
+	//int dis = 25; //对角线不超过25
+	//int tmp_dis = 0;
+	//character* cha = nullptr;
+	//character* tmp_cha = chessboard::characters[0];
+	//for (size_t i = 0; i < 3; i++)
+	//{
+	//	tmp_dis = tmp_cha->pos.x + tmp_cha->pos.y - x - y; 
+	//	if (dis < 0) tmp_dis = -tmp_dis;
+	//	if (tmp_dis < dis)
+	//	{
+	//		dis = tmp_dis;
+	//		cha = tmp_cha;
+	//	}
+	//	tmp_cha++;
+	//}
+	////向该角色移动一步
+	//if (cha->pos.x!=x)
+	//{
+	//	if (cha->pos.y!=y)
+	//	{
+	//		bool to_x = utils::ran_num(0,1);
+	//		if (to_x)
+	//		{
+	//			if (cha->pos.x > x) pos.x += 1;
+	//			else pos.x -= 1;
+	//		}
+	//		else
+	//		{
+	//			if (cha->pos.y > y) pos.y += 1;
+	//			else pos.y -= 1;
+	//		}
+	//	}
+	//	else
+	//	{
+	//		if (cha->pos.x > x) pos.x += 1;
+	//		else pos.x -= 1;
+	//	}
+	//}
+	//else
+	//{
+	//	if (cha->pos.y > y) pos.y += 1;
+	//	else pos.y -= 1;
+	//}
+}
+
+// 首领攻击
+void boss::act()
+{
+	//TODO: 首领特殊攻击行为
 }

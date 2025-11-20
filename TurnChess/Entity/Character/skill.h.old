@@ -1,4 +1,5 @@
 #pragma once
+//已弃用
 //技能范围，0~2分别为远程对单、圆形范围、全屏
 enum scopes {to_one, circle, screen};
 

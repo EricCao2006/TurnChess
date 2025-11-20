@@ -6,9 +6,9 @@ inline castle::castle(const position pos)
 {
 	this->name = "castle";
 	this->pos = pos;
-	provide_exp = 10 * chessboard::difficulty;
-	this->monster_total = 4 + chessboard::difficulty;
-	this->boss_total = 1 + (chessboard::difficulty / 3);
+	provide_exp = 10 * chessboard::level;
+	this->monster_total = 4 + chessboard::level;
+	this->boss_total = 1 + (chessboard::level / 3);
 	//µÚ0²¨³ö¹Ö
 	//TODO
 }
