@@ -3,6 +3,5 @@
 //物体
 class item : public entity
 {
-public:
-	; //此处留空
+	//你要啥特性啊
 };

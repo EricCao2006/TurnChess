@@ -6,11 +6,9 @@ inline castle::castle(const position pos)
 {
 	this->name = "castle";
 	this->pos = pos;
-	provide_exp = 10 * chessboard::level;
 	this->monster_total = 4 + chessboard::level;
 	this->boss_total = 1 + (chessboard::level / 3);
-	//第0波出怪
-	//TODO
+	//TODO:第0波出怪
 }
 
 /**
@@ -25,10 +23,5 @@ inline bool castle::monster_out()
 	bool used[8];
 	//生成随机数1~8
 	utils::ran_num(1, 8);
-	//TODO
-}
-
-inline void player::break_castle()
-{
-	exp += castle::provide_exp;
+	//TODO:出怪检测
 }

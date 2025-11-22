@@ -9,7 +9,6 @@ public:
 	int player_id = 0; //角色ID
 
 	void act() override; //行动
-	void break_castle(); //攻破堡垒
 	player();
 private:
 	virtual void A_skill() = 0; //普攻

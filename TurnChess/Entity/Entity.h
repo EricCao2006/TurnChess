@@ -11,7 +11,7 @@ struct position
 
 //实体类型
 enum entity_type
-{ PLAYER,ENEMY,BARRIER,CASTLE };
+{ PLAYER, ENEMY, BARRIER, CASTLE };
 //实体
 class entity
 {
