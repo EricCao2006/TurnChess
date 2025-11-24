@@ -352,13 +352,13 @@ void Healer::A_skill()
 void Healer::E_skill()
 {
 	move_away(this);
-	// 提升全体生命上限（静态 max_health），并按新上限补满生命
-	character::base_health *= 1.5;
+	// 提升我方全体生命上限（静态 max_health），并按新上限补满生命
 	for (int i = 0; i < 3; ++i)
 	{
 		auto* p = CB::get_instance()->players[i];
 		if (p == nullptr) continue;
-		p->health_now = static_cast<int>(p->base_health);
+		p->max_health *= 1.5;
+		p->health_now = p->max_health;
 	}
 	// 也为棋盘上的所有玩家（如有其他引用）做同步
 }

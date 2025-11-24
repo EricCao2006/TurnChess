@@ -49,7 +49,6 @@ void monster::act()
 				}
 			}
 		}
-		around++; //继续旋转寻人
 	}
 	//如果没有，则向直角距离最近的角色移动一步，绕开障碍物
 	constexpr int W = 16;
