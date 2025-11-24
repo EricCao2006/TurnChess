@@ -35,9 +35,6 @@
     <ClInclude Include="TurnChess\Entity\entity.h">
       <Filter>Entity</Filter>
     </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Item\grid.h">
-      <Filter>Entity\Item</Filter>
-    </ClInclude>
     <ClInclude Include="TurnChess\Entity\item.h">
       <Filter>Entity</Filter>
     </ClInclude>

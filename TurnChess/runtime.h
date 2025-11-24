@@ -8,7 +8,6 @@
 #include "Entity/Character/player.h"
 #include "Entity/Item/barrier.h"
 #include "Entity/Item/castle.h"
-#include "Entity/Item/grid.h"
 #include "Logic/chessboard.h" 
 #include "Logic/act_list.h"
 #include "Logic/utils.h"

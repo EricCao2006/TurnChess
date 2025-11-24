@@ -11,7 +11,7 @@
 	 */
 void character::attacked(const int attack_value)
 {
-	const double defense = 100.0 / (100.0 + defense_now);
+	const double defense = 1.0 / (1.0 + defense_now);
 	int damage = static_cast<int>(attack_value * defense);
 	damage = std::clamp(damage, 1, health_now);//定界
 	health_now -= damage;
@@ -20,7 +20,7 @@ void character::attacked(const int attack_value)
 /**
  * @brief 属性随难度提升
  *
- * 生乘1.2倍，攻防提1点
+ * 生乘1.2倍，攻提1点，防提1点
  */
 void character::level_up()
 {

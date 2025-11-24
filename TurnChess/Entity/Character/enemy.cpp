@@ -1,6 +1,10 @@
 #include "enemy.h"
 #include "../../Logic/utils.h"
 #include "../../Logic/chessboard.h"
+#include <queue>
+#include <utility>
+#include <array>
+
 // 初始化小怪属性
 monster::monster()
 {
@@ -12,9 +16,9 @@ monster::monster()
 // 初始化首领属性
 boss::boss()
 {
-	health_now = 10 * static_cast<int>(max_health);
+	health_now = 5 * static_cast<int>(max_health);
 	attack_now = 5 * norm_attack;
-	defense_now = 10 * norm_defense;
+	defense_now = 2 * norm_defense;
 }
 
 // 小怪攻击
@@ -29,67 +33,106 @@ void monster::act()
 		//确保坐标合法
 		if (x >= 0 && y >= 0 && x <= 15 && y <= 8)
 		{
-			auto* target = chessboard::entities[x][y].ent;
+			auto* target = CB::get_instance()->entities[x][y].ent;
 			if (target != nullptr )
 			{
 				if (target->type == PLAYER)
 				{
 					static_cast<character*>(target)->attacked(attack_now);
-					break;
+					return;	//攻击后结束行动
 				}
 			}
 		}
-		around++;
+		around++; //继续旋转寻人
 	}
-	//TODO:寻路算法
-	////如果没有，那么计算直角距离最近的角色
-	//int dis = 25; //对角线不超过25
-	//int tmp_dis = 0;
-	//character* cha = nullptr;
-	//character* tmp_cha = chessboard::characters[0];
-	//for (size_t i = 0; i < 3; i++)
-	//{
-	//	tmp_dis = tmp_cha->pos.x + tmp_cha->pos.y - x - y; 
-	//	if (dis < 0) tmp_dis = -tmp_dis;
-	//	if (tmp_dis < dis)
-	//	{
-	//		dis = tmp_dis;
-	//		cha = tmp_cha;
-	//	}
-	//	tmp_cha++;
-	//}
-	////向该角色移动一步
-	//if (cha->pos.x!=x)
-	//{
-	//	if (cha->pos.y!=y)
-	//	{
-	//		bool to_x = utils::ran_num(0,1);
-	//		if (to_x)
-	//		{
-	//			if (cha->pos.x > x) pos.x += 1;
-	//			else pos.x -= 1;
-	//		}
-	//		else
-	//		{
-	//			if (cha->pos.y > y) pos.y += 1;
-	//			else pos.y -= 1;
-	//		}
-	//	}
-	//	else
-	//	{
-	//		if (cha->pos.x > x) pos.x += 1;
-	//		else pos.x -= 1;
-	//	}
-	//}
-	//else
-	//{
-	//	if (cha->pos.y > y) pos.y += 1;
-	//	else pos.y -= 1;
-	//}
+	//如果没有，则向直角距离最近的角色移动一步，绕开障碍物
+	constexpr int W = 16;
+	constexpr int H = 9;
+	bool vis[W][H] = { false };
+	std::pair<int, int> prev[W][H];
+	for (int i = 0; i < W; ++i)
+		for (int j = 0; j < H; ++j)
+			prev[i][j] = { -1, -1 };
+
+	std::queue<std::pair<int, int>> q;
+	q.push({ pos.x, pos.y });
+	vis[pos.x][pos.y] = true;
+
+	std::pair<int, int> found = { -1, -1 };
+	const std::array<std::pair<int, int>, 4> dirs = { std::pair{1,0}, std::pair{-1,0}, std::pair{0,1}, std::pair{0,-1} };
+
+	while (!q.empty() && found.first == -1)
+	{
+		auto [cx, cy] = q.front(); q.pop();
+		for (auto [dx, dy] : dirs)
+		{
+			int nx = cx + dx;
+			int ny = cy + dy;
+			if (nx < 0 || ny < 0 || nx >= W || ny >= H) continue;
+			if (vis[nx][ny]) continue;
+
+			auto* ent = CB::get_instance()->entities[nx][ny].ent;
+			// 如果该格有实体且不是玩家，则视为障碍不能通过
+			if (ent != nullptr && ent->type != PLAYER) continue;
+
+			vis[nx][ny] = true;
+			prev[nx][ny] = { cx, cy };
+
+			// 如果找到玩家，记录并退出搜索（BFS 保证最短路径）
+			if (ent != nullptr && ent->type == PLAYER)
+			{
+				found = { nx, ny };
+				break;
+			}
+			// 空格或玩家格（如果玩家没有被当作障碍继续推进），继续扩展
+			q.push({ nx, ny });
+		}
+	}
+
+	// 未找到可达玩家则不移动
+	if (found.first == -1) return;
+
+	// 从 found 回溯到起点，找到起点之后的第一步
+	std::pair<int, int> cur = found;
+	std::pair<int, int> step = found;
+	while (prev[cur.first][cur.second].first != -1)
+	{
+		step = cur;
+		cur = prev[cur.first][cur.second];
+		if (cur.first == pos.x && cur.second == pos.y) break;
+	}
+	// step 是从起点出发的第一步坐标（如果已经在邻近格，step 可能等于 found）
+
+	// 如果第一步是当前位置（不移动），则返回
+	if (step.first == pos.x && step.second == pos.y) return;
+
+	// 更新棋盘上的实体指针（将当前位置设为空、目标格指针设为自己）
+	auto* cb = CB::get_instance();
+	// 防护：确保旧格确实指向自己再清空（以免误清）
+	if (cb->entities[pos.x][pos.y].ent == this)
+		cb->entities[pos.x][pos.y].ent = nullptr;
+	// 如果目标格是玩家则不覆盖玩家（通常不会发生，因为我们只移动到空格或靠近玩家）
+	if (cb->entities[step.first][step.second].ent == nullptr)
+		cb->entities[step.first][step.second].ent = this;
+	// 删除原位置
+	cb->entities[pos.x][pos.y].ent = nullptr;
+	cb->entities[pos.x][pos.y].dis = "  ";
+	// 更新自身坐标
+	pos.x = step.first;
+	pos.y = step.second;
+	//放置到棋盘上
+	cb->entities[pos.x][pos.y].ent = this;
+	cb->entities[pos.x][pos.y].dis = display;
+
 }
 
 // 首领攻击
 void boss::act()
 {
-	//TODO: 首领特殊攻击行为
+	//全屏攻击
+	for (int i = 0; i < 3; i++)
+	{
+		auto* target = CB::get_instance()->players[i];
+		target->attacked(attack_now);
+	}
 }

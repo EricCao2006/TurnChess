@@ -1,27 +1,27 @@
 #pragma once
-#include "../Entity/Item/grid.h"
 #include "../Entity/Character/player.h"
 #include "../Entity/Character/enemy.h"
 #include "../Logic/utils.h"
 #define CB chessboard
-//棋盘
+//棋盘&全局状类(单例)
 class chessboard
 {
 public:
-	//棋盘维度：
-	static grid* grids[16][9]; //棋盘共16*9格
-	static utils::ent_dis entities[16][9]; //实体指针与显示字符
-	//棋子维度：
-	static player* players[3]; //角色共三个
-	static enemy* enemies[100]; //敌人最多一百个
-	inline static int level = 1; //关卡等级,角色与怪物属性随等级提升
-
-	static void display();
-
-	static void create_CB();
-	static void clear_CB();
-	static void load_CB();	
+	//棋盘共16*9格
+	utils::ent_dis entities[16][9]; //实体指针与显示字符
+	player* players[3] = { nullptr }; //角色共三个
+	enemy* enemies[100] = { nullptr }; //敌人最多一百个
+	int level = 1; //关卡等级,角色与怪物属性随等级提升
+	int E_point = 3; //战技点，每关初始3点，上线5点
+	
+	void display();
+	void clear_CB();
+	void load_CB();
+	static CB* get_instance(){return CB_;} 
+	int enemy_num(); //获取当前敌人数量
+	bool enemies_defeated(); //判断是否所有敌人被击败
 private:
-	chessboard() = default;
+	CB() = default;//禁止外部实例化
+	static CB* CB_;//单例
 };
 

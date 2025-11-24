@@ -28,7 +28,6 @@
     <ClInclude Include="TurnChess\Entity\item.h" />
     <ClInclude Include="TurnChess\Entity\Item\barrier.h" />
     <ClInclude Include="TurnChess\Entity\Item\castle.h" />
-    <ClInclude Include="TurnChess\Entity\Item\grid.h" />
     <ClInclude Include="TurnChess\Logic\act_list.h" />
     <ClInclude Include="TurnChess\Logic\utils.h" />
     <ClInclude Include="TurnChess\Logic\chessboard.h" />

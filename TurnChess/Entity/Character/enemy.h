@@ -11,7 +11,7 @@ public:
 	void act() override;
 };
 
-//首领，生防为小怪10倍，攻为5倍
+//首领，生攻为小怪5倍，防为2倍
 class boss : public enemy
 {
 public:
