@@ -5,7 +5,7 @@
 class Saber : public player
 { 
 public:
-	string display = "Sa";
+	Saber();
 	void A_skill() override; //普攻
 	void E_skill() override; //战技
 	void Q_skill() override; //大招
@@ -14,7 +14,8 @@ public:
 //弓箭手
 class Archer : public player
 {
-	string display = "Ar";
+public:
+	Archer();
 	void A_skill() override; //普攻
 	void E_skill() override; //战技
 	void Q_skill() override; //大招
@@ -23,7 +24,8 @@ class Archer : public player
 //治疗
 class Healer : public player
 {
-	string display = "He";
+public:
+	Healer();
 	void A_skill() override; //普攻
 	void E_skill() override; //战技
 	void Q_skill() override; //大招

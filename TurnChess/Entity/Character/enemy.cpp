@@ -5,20 +5,24 @@
 #include <utility>
 #include <array>
 
-// 初始化小怪属性
+// 初始化小怪
 monster::monster()
 {
 	health_now = static_cast<int>(max_health);
 	attack_now = norm_attack;
 	defense_now = norm_defense;
+	display = "Mo";
+	type = ENEMY;
 }
 
-// 初始化首领属性
+// 初始化首领
 boss::boss()
 {
 	health_now = 5 * static_cast<int>(max_health);
 	attack_now = 5 * norm_attack;
 	defense_now = 2 * norm_defense;
+	display = "Bo";
+	type = ENEMY;
 }
 
 // 小怪攻击

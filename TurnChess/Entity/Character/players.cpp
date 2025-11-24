@@ -4,6 +4,24 @@
 #include <algorithm>
 #include <cmath>
 
+Saber::Saber()
+{
+	name = "Saber ";//多加一个空格对齐
+    display = "Sa"; 
+}
+
+Archer::Archer()
+{
+    name = "Archer";
+    display = "Ar";
+}
+
+Healer::Healer()
+{
+    name = "Healer";
+    display = "He";
+}
+
 // 应用伤害（只对 character 生效）
 static void apply_damage(entity* e, int dmg)
 {

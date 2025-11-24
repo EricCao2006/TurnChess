@@ -1,7 +1,27 @@
 #include "act_list.h"
 #include "chessboard.h"
 #include "../Entity/Item/castle.h"
-act_list* act_list::AL_ = new act_list();
+#include <algorithm>
+act_list* act_list::AL_ = nullptr;
+
+act_list::act_list()
+{
+	for (int i = 0; i < MAX_ACTS; ++i)
+		acts[i] = nullptr;
+}
+
+act_list::~act_list()
+{
+	// act_list 不负责删除 character 实例（除非明确 ownership），仅清空指针
+	for (int i = 0; i < MAX_ACTS; ++i)
+		acts[i] = nullptr;
+}
+
+act_list* act_list::get_instance()
+{
+	if (!AL_) AL_ = new act_list();
+	return AL_;
+}
 
 /**
  * @brief 步进:
@@ -13,48 +33,83 @@ act_list* act_list::AL_ = new act_list();
  */
 bool AL::next_step()
 {
-	acts[0]->act();
-	character* new_acts[20];
-	int new_i = 0;
-	for (int i = 1; i < 20; i++)
-	{
-		if (acts[i]->health_now > 0)
-			new_acts[new_i++] = acts[i];
-		else
-			acts[i]->~character(); //清除死项
-	}
-	new_acts[new_i++] = acts[0];
-	for (int i = 0; i < new_i; i++)
-		acts[i] = new_acts[i];
-	for (int i = new_i; i < 20; i++)
-		acts[i] = nullptr;	//清除多余项
-	CB::get_instance()->display();//刷新棋盘显示
-	//如果怪物出完且全部被击败
-	if ((CA::get_instance()->is_empty()) 
-			&& (CB::get_instance()->enemies_defeated()))
-		return true;
-	else
-	{
-		CA::get_instance()->monster_out(); //尝试出怪
-		return false;
-	}
+    // 若首项为空，尝试加载行动列表；仍无数据则安全返回
+    if (!acts[0])
+    {
+        load_AL();
+        if (!acts[0])
+            return false;
+    }
+
+    acts[0]->act();
+
+    character* new_acts[MAX_ACTS] = { nullptr };
+    int new_i = 0;
+    for (int i = 1; i < MAX_ACTS; ++i)
+    {
+        if (acts[i] && acts[i]->health_now > 0)
+        {
+            new_acts[new_i++] = acts[i];
+        }
+        else if (acts[i])
+        {
+            // 不调用显式析构；如果 act_list 拥有对象生命周期，应改为 delete acts[i];
+            acts[i] = nullptr;
+        }
+    }
+
+    if (acts[0])
+        new_acts[new_i++] = acts[0];
+
+    // 复制回 acts，并清空后续槽
+    for (int i = 0; i < new_i && i < MAX_ACTS; ++i)
+        acts[i] = new_acts[i];
+    for (int i = new_i; i < MAX_ACTS; ++i)
+        acts[i] = nullptr;
+
+    CB::get_instance()->display();
+    turns++;//回合数+1
+    if ((CA::get_instance()->is_empty())
+        && (CB::get_instance()->enemies_defeated()))
+        return true;
+    else
+    {
+        CA::get_instance()->monster_out();
+        return false;
+    }
+
 }
 
-//清空行动列表
 void AL::clear_AL()
 {
-	for (int i = 0; i < 20; i++)
-		acts[i] = nullptr;
+    for (int i = 0; i < MAX_ACTS; ++i)
+        acts[i] = nullptr;
+	turns = 0;//回合数归零
 }
 
-//加载行动列表
 void AL::load_AL()
 {
-	//我一动敌一动
-	int enemy_num = CB::get_instance()->enemy_num();
-	for (int i = 0; i < enemy_num; i++)
-	{
-		acts[i*2] = CB::get_instance()->players[i%3];
-		acts[i*2+1] = CB::get_instance()->enemies[i];
-	}
+    // 先清空槽，确保一致性
+    for (int i = 0; i < MAX_ACTS; ++i) acts[i] = nullptr;
+
+    int enemy_num = CB::get_instance()->enemy_num();
+    const int player_count = 3;
+    int rounds = std::max(enemy_num, player_count);
+    int idx = 0;
+    for (int i = 0; i < rounds && idx < MAX_ACTS; ++i)
+    {
+        // always try to put player i (wrap or direct?) - use players[i] where i < player_count
+        if (i < player_count)
+        {
+            auto* p = CB::get_instance()->players[i];
+            if (p != nullptr && idx < MAX_ACTS) acts[idx++] = p;
+        }
+        // then put enemy i if exists
+        if (i < enemy_num)
+        {
+            auto* e = CB::get_instance()->enemies[i];
+            if (e != nullptr && idx < MAX_ACTS) acts[idx++] = e;
+        }
+    }
+	turns = 0;//回合数归零
 }

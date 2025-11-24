@@ -1,8 +1,10 @@
 #include "castle.h"
-#include "../../Logic/utils.h"
 #include "../../Logic/chessboard.h"
+#include "../../Logic/utils.h"
 #include <vector>
 #include <string>
+
+// 定义单例静态对象
 castle castle::castle_;
 
 //创建时根据难度调整属性
@@ -15,9 +17,6 @@ void CA::set_CA(const position pos)
 		this->monster_total = 4 + CB::get_instance()->level;
 		this->boss_total = 1 + (CB::get_instance()->level / 3);
 	}
-	//放置到棋盘上
-	CB::get_instance()->entities[pos.x][pos.y].ent = this;
-	CB::get_instance()->entities[pos.x][pos.y].dis = this->display;
 	monster_out(); //第0波出怪
 }
 
@@ -86,17 +85,17 @@ inline void castle::monster_out()
 		b->pos = chosen;
 		// 将实体指针放到棋盘对应格
 		CB::get_instance()->entities[chosen.x][chosen.y].ent = b;
+		// ensure display is set so board shows the enemy
+		CB::get_instance()->entities[chosen.x][chosen.y].dis = b->display;
 		++boss_already;
-		// 将首领加入敌人列表
-		while (true)
+		// 将首领加入敌人列表，寻找第一个空槽
+		for (int i = 0; i < 100; ++i)
 		{
-			int i = 0;
 			if (CB::get_instance()->enemies[i] == nullptr)
 			{
 				CB::get_instance()->enemies[i] = b;
 				break;
 			}
-			++i;
 		}
 	}
 	else
@@ -105,17 +104,17 @@ inline void castle::monster_out()
 		m->type = ENEMY;
 		m->pos = chosen;
 		CB::get_instance()->entities[chosen.x][chosen.y].ent = m;
+		// ensure display is set so board shows the enemy
+		CB::get_instance()->entities[chosen.x][chosen.y].dis = m->display;
 		++monster_already;
-		// 将小怪加入敌人列表
-		while (true)
+		// 将小怪加入敌人列表，寻找第一个空槽
+		for (int i = 0; i < 100; ++i)
 		{
-			int i = 0;
 			if (CB::get_instance()->enemies[i] == nullptr)
 			{
 				CB::get_instance()->enemies[i] = m;
 				break;
 			}
-			++i;
 		}
 	}
 

@@ -5,12 +5,15 @@
 class act_list
 {
 public:
-	character* acts[200];
+	static constexpr int MAX_ACTS = 200;
+	character* acts[MAX_ACTS];
+	int turns = 0; //记录回合数
 	bool next_step();
 	void clear_AL();
 	void load_AL();
-	static act_list* get_instance() { return AL_; }
+	static act_list* get_instance();
 private:
-	act_list() = default;//禁止外部实例化
+	act_list();
+	~act_list();
 	static act_list* AL_;//单例
 };

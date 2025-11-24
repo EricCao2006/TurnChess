@@ -8,7 +8,7 @@
 void player::act()
 {
 	char choice;
-	std::cout << name << "行动";
+	std::cout << "[INFO] " << name << "行动，";
 	while (true)
 	{
 		std::cout << "请选择技能：A-普攻 E-战技 Q-大招" << std::endl;
@@ -34,7 +34,7 @@ void player::act()
 			}
 			else
 			{
-				std::cout << "战技点不足!" << std::endl;
+				std::cout << "[WARN] 战技点不足！" << std::endl;
 			}
 		}
 		else if (choice == 'Q' || choice == 'q')
@@ -47,12 +47,12 @@ void player::act()
 			}
 			else
 			{
-				std::cout << "能量不足!" << std::endl;
+				std::cout << "[WARN] 能量不足！" << std::endl;
 			}
 		}
 		else
 		{
-			std::cout << "输入无效，请重新选择。" << std::endl;
+			std::cout << "[WARN] 输入无效，请重新选择！" << std::endl;
 		}
 	}
 }

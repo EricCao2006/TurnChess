@@ -1,5 +1,6 @@
 ﻿//主程序
 #include "Runtime.h"
+#include <windows.h>
 
 int main()
 {
@@ -7,6 +8,15 @@ int main()
 	CB* cb = CB::get_instance();//棋盘
 	AL* al = AL::get_instance();//行动列表
 	CA* ca = CA::get_instance();//堡垒
+
+	// 初始化棋盘和行动列表
+	cb->clear_CB();
+	cb->load_CB();
+	al->clear_AL();
+	al->load_AL();
+	
+	cb->display(); // 显示棋盘
+	std::cout << "[INFO] 欢迎来到回合制战棋！\n";
 
 	//旗帜变量
 	bool completed = false;
@@ -65,7 +75,7 @@ int main()
 		}
 		else
 		{
-			cout << "感谢您的游玩！"; 
+			cout << "[INFO] 感谢您的游玩！"; 
 			return 0;
 		}
 	}
