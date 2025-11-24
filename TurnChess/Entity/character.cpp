@@ -11,7 +11,7 @@
 	 */
 void character::attacked(const int attack_value)
 {
-	const double defense = 1.0 / (1.0 + defense_now);
+	const double defense = 1.0 / (1.0 + this->defense);
 	int damage = static_cast<int>(attack_value * defense);
 	damage = std::clamp(damage, 1, health_now);//¶¨½ç
 	health_now -= damage;
@@ -24,7 +24,7 @@ void character::attacked(const int attack_value)
  */
 void character::level_up()
 {
-	max_health *= 1.2;
-	norm_attack += 1;
-	norm_defense += 1;
+	base_health *= 1.2;
+	base_attack += 1;
+	base_defense += 1;
 }

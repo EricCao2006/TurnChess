@@ -173,9 +173,9 @@ void CB::display()
 	{
 		auto* p = players[i];
 		std::cout << p->name  
-			<< "  ÉúÃü " << p->health_now << "/" << static_cast<int>(character::max_health)
-			<< "  ¹¥»÷ " << p->attack_now 
-			<< "  ·ÀÓù " << p->defense_now 
+			<< "  ÉúÃü " << p->health_now << "/" << p->max_health
+			<< "  ¹¥»÷ " << p->attack 
+			<< "  ·ÀÓù " << p->defense 
 			<< "  ÄÜÁ¿ " << p->power << "/100";
 		std::cout << std::endl;
 	}

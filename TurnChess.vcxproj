@@ -23,7 +23,6 @@
     <ClInclude Include="TurnChess\Entity\Character\enemy.h" />
     <ClInclude Include="TurnChess\Entity\Character\player.h" />
     <ClInclude Include="TurnChess\Entity\Character\players.h" />
-    <ClInclude Include="TurnChess\Entity\Character\skill.h.old" />
     <ClInclude Include="TurnChess\Entity\entity.h" />
     <ClInclude Include="TurnChess\Entity\item.h" />
     <ClInclude Include="TurnChess\Entity\Item\barrier.h" />

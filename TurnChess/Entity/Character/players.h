@@ -21,7 +21,7 @@ public:
 	void Q_skill() override; //大招
 };
 
-//治疗
+//治疗师
 class Healer : public player
 {
 public:

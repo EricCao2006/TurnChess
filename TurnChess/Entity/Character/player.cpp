@@ -59,7 +59,7 @@ void player::act()
 
 player::player()
 {
-	health_now = static_cast<int>(max_health);
-	attack_now = norm_attack;
-	defense_now = norm_defense;
+	health_now = static_cast<int>(base_health);
+	attack = base_attack;
+	defense = base_defense;
 }

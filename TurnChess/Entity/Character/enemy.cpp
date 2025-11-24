@@ -8,9 +8,10 @@
 // 初始化小怪
 monster::monster()
 {
-	health_now = static_cast<int>(max_health);
-	attack_now = norm_attack;
-	defense_now = norm_defense;
+	max_health = static_cast<int>(base_health);
+	health_now = max_health;
+	attack = base_attack;
+	defense = base_defense;
 	display = "Mo";
 	type = ENEMY;
 }
@@ -18,9 +19,10 @@ monster::monster()
 // 初始化首领
 boss::boss()
 {
-	health_now = 5 * static_cast<int>(max_health);
-	attack_now = 5 * norm_attack;
-	defense_now = 2 * norm_defense;
+	max_health = 5 * static_cast<int>(base_health);
+	health_now = max_health;
+	attack = 5 * base_attack;
+	defense = 2 * base_defense;
 	display = "Bo";
 	type = ENEMY;
 }
@@ -42,7 +44,7 @@ void monster::act()
 			{
 				if (target->type == PLAYER)
 				{
-					static_cast<character*>(target)->attacked(attack_now);
+					static_cast<character*>(target)->attacked(attack);
 					return;	//攻击后结束行动
 				}
 			}
@@ -137,6 +139,6 @@ void boss::act()
 	for (int i = 0; i < 3; i++)
 	{
 		auto* target = CB::get_instance()->players[i];
-		target->attacked(attack_now);
+		target->attacked(attack);
 	}
 }

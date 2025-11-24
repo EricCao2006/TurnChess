@@ -5,13 +5,14 @@ class character : public entity
 {
 public:
 	// 基础属性
-	inline static double max_health = 10.0; // 生命值上限
-	inline static int norm_attack = 1; // 常态攻击力
-	inline static int norm_defense = 1; // 常态防御力
+	inline static double base_health = 10.0; // 基准生命值
+	inline static int base_attack = 1; // 基准攻击力
+	inline static int base_defense = 1; // 基准防御力
 	// 当前属性
-	int health_now = 0; // 当前生命值
-	int attack_now = 0; // 当前攻击力
-	int defense_now = 0; // 当前防御力
+	int max_health = 10; // 最大生命值
+	int health_now = 10; // 当前生命值
+	int attack = 1; // 攻击力
+	int defense = 2; // 防御力
 	//行动
 	virtual void act() = 0;
 	//受到攻击

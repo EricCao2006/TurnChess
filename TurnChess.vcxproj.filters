@@ -41,9 +41,6 @@
     <ClInclude Include="TurnChess\Entity\Character\player.h">
       <Filter>Entity\Character</Filter>
     </ClInclude>
-    <ClInclude Include="TurnChess\Entity\Character\skill.h.old">
-      <Filter>Entity\Character</Filter>
-    </ClInclude>
     <ClInclude Include="TurnChess\runtime.h">
       <Filter>Main</Filter>
     </ClInclude>
